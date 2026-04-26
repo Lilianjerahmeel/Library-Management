@@ -58,7 +58,7 @@
                             <td>{{ $user->emprunts_approuves_count}}</td>
                             <td>
                                 <a href="{{ route('admin.users.edit', $user) }}" 
-                                   class="btn btn-warning btn-sm">
+                                   class="btn btn-warning btn-sm mb-1">
                                     <i class="fas fa-edit"></i> Modifier rôle
                                 </a>
                                 <form action="{{ route('admin.users.destroy', $user) }}" 

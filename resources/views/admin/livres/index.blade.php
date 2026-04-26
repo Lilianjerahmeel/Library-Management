@@ -72,16 +72,16 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.livres.edit', $livre) }}" 
-                                   class="btn btn-warning btn-sm">
+                                   class="btn btn-warning btn-sm mb-1">
                                     <i class="fas fa-edit"></i> Modifier
                                 </a>
 
                                 <form action="{{ route('admin.livres.destroy', $livre) }}" 
-                                      method="POST" class="d-inline"
+                                      method="POST" style="display: inline-block;"
                                       onsubmit="return confirm('Etes-vous sûr de supprimer ce livre ?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">
+                                    <button type="submit" class="btn btn-danger btn-sm" style="white-space: nowrap;">
                                         <i class="fas fa-trash"></i> Supprimer
                                     </button>
                                 </form>

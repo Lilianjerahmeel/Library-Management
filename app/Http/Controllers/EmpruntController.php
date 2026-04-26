@@ -14,15 +14,30 @@ class EmpruntController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $emprunts = Emprunt::with(['user', 'livre'])
-                        ->orderBy('created_at', 'desc')
-                        ->paginate(10);
+        $query = Emprunt::with(['user', 'livre'])
+                        ->orderBy('created_at', 'desc');
+
+        // Recherche par nom utilisateur ou titre livre
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->whereHas('user', function($q) use ($search) {
+                $q->where('name', 'like', '%' . $search . '%');
+            })->orWhereHas('livre', function($q) use ($search) {
+                $q->where('titre', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Filtre par statut
+        if ($request->filled('statut')) {
+            $query->where('statut', $request->statut);
+        }
+
+        $emprunts = $query->paginate(10);
 
         return view('admin.emprunts.index', compact('emprunts'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
