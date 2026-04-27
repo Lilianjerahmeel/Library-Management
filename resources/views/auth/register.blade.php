@@ -18,7 +18,7 @@
 
         <!-- Tel -->
         <div class="mt-4">
-            <x-input-label for="telephone" :value="__('Telephone')" />
+            <x-input-label for="telephone" :value="__('Téléphone')" />
             <x-text-input id="telephone" class="block mt-1 w-full" type="text" name="telephone" :value="old('telephone')" required autofocus autocomplete="telephone" />
             <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
         </div>
@@ -32,7 +32,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Mot de passe')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -44,7 +44,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Confirmer le mot de passe')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
@@ -55,11 +55,11 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                {{ __('Déja incrit') }}
             </a>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
+            <x-primary-button class="ms-4" style="background-color: #007bff; border-color: #007bff;">
+                {{ __('S\'inscrire') }}
             </x-primary-button>
         </div>
     </form>
