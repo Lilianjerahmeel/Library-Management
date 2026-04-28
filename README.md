@@ -51,6 +51,8 @@ Application web de gestion d'une bibliothèque développée avec **Laravel 12** 
 | PHP | 8.2 | Langage backend |
 | Laravel | 12 | Framework MVC |
 | MySQL | 8.0 | Base de données |
+| phpMyAdmin | — | Gestion base de données |
+| XAMPP | — | Environnement local |
 | AdminLTE | 3 | Interface admin |
 | Bootstrap | 4.6 | Interface publique |
 | Font Awesome | 5.15 | Icônes |
@@ -62,15 +64,15 @@ Application web de gestion d'une bibliothèque développée avec **Laravel 12** 
 ### Prérequis
 - PHP >= 8.2
 - Composer
-- MySQL
+- XAMPP (inclut Apache + MySQL + phpMyAdmin)
 - Node.js & NPM
 
 ### Étapes
 
 **1. Cloner le projet**
 ```bash
-git clone https://github.com/Lilianjerahmeel/Library-Management.git
-cd Library-Management
+git clone https://github.com/ton-username/gestion-bibliotheque.git
+cd gestion-bibliotheque
 ```
 
 **2. Installer les dépendances**
@@ -85,7 +87,15 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-**4. Configurer la base de données dans `.env`**
+**4. Créer la base de données avec phpMyAdmin**
+- Démarrer XAMPP (Apache + MySQL)
+- Ouvrir phpMyAdmin → `http://localhost/phpmyadmin`
+- Cliquer sur **Nouvelle base de données**
+- Nommer la base : `gestion_biblio`
+- Encodage : `utf8mb4_unicode_ci`
+- Cliquer sur **Créer**
+
+**5. Configurer `.env`**
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -95,28 +105,27 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-**5. Créer les tables et les données de test**
+**6. Créer les tables**
 ```bash
 php artisan migrate
-php artisan db:seed  # optionnel
 ```
 
-**6. Créer le lien symbolique pour les photos**
+**7. Créer le lien symbolique pour les photos**
 ```bash
 php artisan storage:link
 ```
 
-**7. Compiler les assets**
+**8. Compiler les assets**
 ```bash
 npm run dev
 ```
 
-**8. Lancer le serveur**
+**9. Lancer le serveur**
 ```bash
 php artisan serve
 ```
 
-**9. Accéder à l'application**
+**10. Accéder à l'application**
 ```
 http://127.0.0.1:8000
 ```
@@ -209,6 +218,8 @@ routes/
 | Admin | admin@admin.com | password |
 | Utilisateur | user@user.com | password |
 
+> ⚠️ Pensez à créer ces comptes manuellement via la page d'inscription ou via phpMyAdmin.
+
 ---
 
 ## 📋 Règles métier
@@ -231,9 +242,6 @@ routes/
 - [ ] Date limite de retour avec alertes
 - [ ] Limite d'emprunts par utilisateur
 - [ ] API REST pour application mobile
-
----
-
 
 ---
 
