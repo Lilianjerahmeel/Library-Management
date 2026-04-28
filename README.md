@@ -71,8 +71,8 @@ Application web de gestion d'une bibliothèque développée avec **Laravel 12** 
 
 **1. Cloner le projet**
 ```bash
-git clone https://github.com/ton-username/gestion-bibliotheque.git
-cd gestion-bibliotheque
+git clone https://github.com/Lilianjerahmeel/Library-Management.git
+cd Library-Management
 ```
 
 **2. Installer les dépendances**
