@@ -1,59 +1,242 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Gestion de Bibliothèque
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Application web de gestion d'une bibliothèque développée avec **Laravel 12** en architecture **MVC**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🖥️ Aperçu
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Interface Admin | Interface Utilisateur |
+|---|---|
+| Dashboard avec statistiques | Catalogue de livres |
+| Gestion des livres, auteurs, catégories | Demande d'emprunt |
+| Validation des emprunts | Suivi des demandes |
+| Gestion des utilisateurs | Profil personnel |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Fonctionnalités
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 👨‍💼 Côté Admin
+- 📊 **Dashboard** — statistiques globales (livres, utilisateurs, emprunts actifs)
+- 📖 **Gestion des Livres** — CRUD complet avec photo et gestion du stock
+- ✍️ **Gestion des Auteurs** — CRUD complet
+- 🗂️ **Gestion des Catégories** — CRUD complet
+- 📋 **Gestion des Emprunts** — Approuver / Refuser / Marquer rendu
+- 👥 **Gestion des Utilisateurs** — Liste, modifier rôle, supprimer
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 👤 Côté Utilisateur
+- 🏠 **Catalogue public** — recherche par titre/ISBN, filtres auteur/catégorie
+- 📚 **Emprunter un livre** — demande soumise à validation admin
+- 📋 **Mes Emprunts** — suivi des statuts (En attente / Approuvé / Refusé / Retourné)
+- 👤 **Profil** — modifier nom, email, téléphone, ville, mot de passe
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🔒 Sécurité
 
-### Premium Partners
+- ✅ Protection **CSRF** sur tous les formulaires
+- ✅ Protection **XSS** — échappement automatique avec `{{ }}`
+- ✅ Protection **injection SQL** — Eloquent ORM + requêtes préparées
+- ✅ **Middleware** de rôles (admin/user)
+- ✅ **Hachage** des mots de passe (bcrypt)
+- ✅ **Mass Assignment** protégé via `$fillable`
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🛠️ Technologies utilisées
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Technologie | Version | Usage |
+|---|---|---|
+| PHP | 8.2 | Langage backend |
+| Laravel | 12 | Framework MVC |
+| MySQL | 8.0 | Base de données |
+| AdminLTE | 3 | Interface admin |
+| Bootstrap | 4.6 | Interface publique |
+| Font Awesome | 5.15 | Icônes |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚙️ Installation
 
-## Security Vulnerabilities
+### Prérequis
+- PHP >= 8.2
+- Composer
+- MySQL
+- Node.js & NPM
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Étapes
 
-## License
+**1. Cloner le projet**
+```bash
+git clone https://github.com/Lilianjerahmeel/Library-Management.git
+cd Library-Management
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**2. Installer les dépendances**
+```bash
+composer install
+npm install
+```
+
+**3. Configurer l'environnement**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+**4. Configurer la base de données dans `.env`**
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gestion_biblio
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+**5. Créer les tables et les données de test**
+```bash
+php artisan migrate
+php artisan db:seed  # optionnel
+```
+
+**6. Créer le lien symbolique pour les photos**
+```bash
+php artisan storage:link
+```
+
+**7. Compiler les assets**
+```bash
+npm run dev
+```
+
+**8. Lancer le serveur**
+```bash
+php artisan serve
+```
+
+**9. Accéder à l'application**
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 🗄️ Structure de la base de données
+
+```
+users
+├── id, name, email, password
+├── telephone, ville, role
+└── timestamps
+
+auteurs
+└── id, nom, timestamps
+
+categories
+└── id, nom, timestamps
+
+livres
+├── id, titre, ISBN
+├── quantite, photo
+├── auteur_id (FK → auteurs)
+├── categorie_id (FK → categories)
+└── timestamps
+
+emprunts
+├── id, user_id (FK → users)
+├── livre_id (FK → livres)
+├── date_emprunt, date_retour
+├── statut (en_attente/approuve/refuse)
+└── timestamps
+```
+
+---
+
+## 📁 Structure du projet
+
+```
+app/
+├── Http/
+│   ├── Controllers/
+│   │   ├── AuteurController.php
+│   │   ├── CategorieController.php
+│   │   ├── LivreController.php
+│   │   ├── EmpruntController.php
+│   │   ├── DashboardController.php
+│   │   ├── UserController.php
+│   │   ├── UserDashboardController.php
+│   │   └── CatalogueController.php
+│   └── Middleware/
+│       └── AdminMiddleware.php
+└── Models/
+    ├── User.php
+    ├── Auteur.php
+    ├── Categorie.php
+    ├── Livre.php
+    └── Emprunt.php
+
+resources/views/
+├── layouts/
+│   ├── admin.blade.php
+│   └── public.blade.php
+├── admin/
+│   ├── dashboard.blade.php
+│   ├── auteurs/
+│   ├── categories/
+│   ├── livres/
+│   ├── emprunts/
+│   └── users/
+├── user/
+│   ├── dashboard.blade.php
+│   └── emprunts.blade.php
+├── catalogue.blade.php
+└── profile/
+    └── edit.blade.php
+
+routes/
+├── web.php
+└── auth.php
+```
+
+---
+
+## 🔑 Comptes de test
+
+| Rôle | Email | Mot de passe |
+|---|---|---|
+| Admin | admin@admin.com | password |
+| Utilisateur | user@user.com | password |
+
+---
+
+## 📋 Règles métier
+
+- ❌ Un utilisateur ne peut pas emprunter 2 fois le même livre
+- ❌ Emprunt impossible si stock = 0
+- ✅ Stock diminue quand emprunt **approuvé**
+- ✅ Stock augmente quand livre **retourné**
+- ❌ Suppression livre bloquée si emprunt actif
+- ❌ Suppression auteur bloquée si livres associés
+- ❌ Suppression utilisateur bloquée si emprunts actifs
+- ✅ Validation admin obligatoire avant tout emprunt
+
+---
+
+## 🚀 Améliorations futures
+
+- [ ] Notifications email (emprunt approuvé/refusé)
+- [ ] Export PDF des emprunts
+- [ ] Date limite de retour avec alertes
+- [ ] Limite d'emprunts par utilisateur
+- [ ] API REST pour application mobile
+
+---
+
+
+---
+
+## 📄 Licence
+
+Ce projet est développé dans le cadre d'un projet académique.
