@@ -233,15 +233,6 @@ routes/
 - ❌ Suppression utilisateur bloquée si emprunts actifs
 - ✅ Validation admin obligatoire avant tout emprunt
 
----
-
-## 🚀 Améliorations futures
-
-- [ ] Notifications email (emprunt approuvé/refusé)
-- [ ] Export PDF des emprunts
-- [ ] Date limite de retour avec alertes
-- [ ] Limite d'emprunts par utilisateur
-- [ ] API REST pour application mobile
 
 ---
 
