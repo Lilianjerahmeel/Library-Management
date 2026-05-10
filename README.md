@@ -233,6 +233,10 @@ routes/
 - ❌ Suppression utilisateur bloquée si emprunts actifs
 - ✅ Validation admin obligatoire avant tout emprunt
 
+---
+
+## 👤 Auteur
+**YANGUENDJI Jerahmeel Lilian** - [Email](mailto:liyanguendji@gmail.com) | [LinkedIn](https://linkedin.com/in/lilian-yanguendji)
 
 ---
 
